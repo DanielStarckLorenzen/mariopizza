@@ -2,6 +2,7 @@ package projekt;
 
 public class Pizza {
 
+
     private int number;
     private String name;
     private String description;
