@@ -1,18 +1,42 @@
 package projekt;
 
+import java.util.Scanner;
+
 public class Pizza {
 
 
     private int number;
     private String name;
     private String description;
-    private double price;
+    private int price;
 
-    Pizza (int number, String name, String description, double price) {
+    Pizza (int number, String name, int price) {
         this.number = number;
         this.name = name;
-        this.description = description;
         this.price = price;
     }
 
+    public void allPizzas() {
+        Pizza pizza1 = new Pizza(1, "Vesuvio", 57);
+    }
+
+    public void setPizza() {
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return "Pizza: " +
+                "number: " + number +
+                ", name: " + name +
+                ", price: " + price;
+    }
 }

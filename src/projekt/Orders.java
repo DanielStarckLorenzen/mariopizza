@@ -1,24 +1,30 @@
 package projekt;
 
+import java.sql.Time;
 import java.util.ArrayList;
 
 public class Orders {
 
-
-
-
     private int customerId;
     private String name;
-    Pizza pizzas;
-    private String pickUpTime;
+    private ArrayList<Pizza> pizzas;
+    private int pickUpTime;
     private int totalPrice;
 
-    Orders (int customerId, String name, Pizza pizzas, String pickUpTime, int totalPrice) {
+    Orders (int customerId, String name, ArrayList<Pizza> pizzas, int pickUpTime) {
         this.customerId = customerId;
         this.name = name;
         this.pizzas = pizzas;
         this.pickUpTime = pickUpTime;
-        this.totalPrice = totalPrice;
+        //this.totalPrice = totalPrice;
     }
 
+    @Override
+    public String toString() {
+        return "\nOrder: " +
+                "customerId: " + customerId +
+                ", name: " + name +
+                ", pizza: " + pizzas +
+                ", pickUpTime: " + pickUpTime;
+    }
 }
