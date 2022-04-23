@@ -1,13 +1,19 @@
 package projekt;
 
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class UserInterface {
+
+    Scanner in = new Scanner(System.in);
 
     public void add() {
         System.out.println("What pizza do you want to add");
 
     }
 
-    public void printMenu(){
+    public void printMenu() {
         System.out.print("""
                 ------------------------------------- MENU ----------------------------------------------
                 1.  Vesuvio:      tomatsauce, ost, skinke, og oregano................................57,-
@@ -26,5 +32,21 @@ public class UserInterface {
                 14. Mafia:        tomatsauce, ost, pepperoni, bacon, løg Og Oregano..................61,-
                 """);
     }
+
+
+
+    public String customerName() {
+        System.out.print("Please enter customer name: ");
+        return in.next();
+    }
+
+    public int setPickupTime() {
+        System.out.print("Time of pickup: ");
+        return in.nextInt();
+    }
+    public void displayListOfOrders(ArrayList<Orders> orders){
+        System.out.print(orders + "\n");
+    }
+
 
 }

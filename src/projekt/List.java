@@ -19,7 +19,7 @@ public class List {
 
     @Override
     public String toString() {
-        return "Order" + listOfOrders;
+        return "\n\nOrder" + listOfOrders;
     }
 
 }

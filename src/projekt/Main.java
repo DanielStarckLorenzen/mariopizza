@@ -9,6 +9,7 @@ public class Main {
     private boolean keepGoing = true;
     private int totalPrice;
     private Pizza pizzaOfChoice = null;
+    private int orderNumber = 0;
 
     UserInterface ui = new UserInterface();
     Scanner in = new Scanner(System.in);
@@ -95,7 +96,7 @@ public class Main {
 
             }
             //totalPrice += pizzaOfChoice.getPrice();
-            list.addingPizza(pizzaOfChoice);
+            list.listOfOrders.get(orderNumber-1).addPizzaToList(pizzaOfChoice);
         }
     }
 
