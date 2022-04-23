@@ -29,24 +29,38 @@ public class Main {
             answer = in.nextLine();
 
             switch (answer) {
-                case "add" -> {
-                    addOrder();
-                }
+                case "add" -> addOrder();
                 case "exit" -> exit();
+                case "orders" -> ui.displayListOfOrders(list.listOfOrders);
+                case "remove", "delete", "cancel" -> cancelOrder();
+                case "menu" -> ui.printMenu();
+
             }
         }
     }
 
+    public void cancelOrder() {
+        list.listOfOrders.remove(1);
+
+    }
+
     public void addOrder() {
 
+        orderNumber++;
+        list.listOfOrders.add(new Orders());
+        list.listOfOrders.get(orderNumber-1).setName(ui.customerName());
+        list.listOfOrders.get(orderNumber-1).setPickUpTime(ui.setPickupTime());
+        list.listOfOrders.get(orderNumber-1).setOrderNumber(orderNumber);
+        addPizza();
+
+
+        /*
         System.out.println("What's the name of the customer?");
-                String name = in.nextLine();
-                System.out.println("What's the time now? (ex. 11:00 = 1100)");
-                int time = in.nextInt();
-                time += 100;
-                in.nextLine();
-
-
+        String name = in.nextLine();
+        System.out.println("What's the time now? (ex. 11:00 = 1100)");
+        int time = in.nextInt();
+        time += 100;
+        in.nextLine();
 
         addPizza();
 
@@ -55,14 +69,18 @@ public class Main {
             customerId++;
         }
 
+        for (int i = 0; i < ; i++) {
+            Orders newOrder = new Orders(customerId, name, list.pizzaList, time);
+            list.addingOrder(newOrder);
+            System.out.println(list.listOfOrders);
+        }
 
-        Orders newOrder = new Orders(customerId, name, list.pizzaList, time);
-        list.addingOrder(newOrder);
-        System.out.println(list.listOfOrders);
+         */
+
     }
 
     public void addPizza() {
-        System.out.print("How many pizzas would you like to order? ");
+        System.out.println("How many pizzas would you like to order? ");
         int amountOfPizzas = in.nextInt();
         in.nextLine();
         for (int i = 0; i < amountOfPizzas; i++) {

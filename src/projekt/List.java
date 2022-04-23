@@ -16,11 +16,6 @@ public class List {
         listOfOrders.add(orderToBeAdded);
     }
 
-    StringBuilder printList() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(pizzaList);
-        return sb;
-    }
 
     @Override
     public String toString() {

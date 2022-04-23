@@ -7,7 +7,7 @@ public class Orders {
 
     private int customerId;
     private String name;
-    private ArrayList<Pizza> pizzas;
+    private ArrayList<Pizza> pizzas = new ArrayList<>();
     private int pickUpTime;
     private int totalPrice;
 
@@ -24,7 +24,7 @@ public class Orders {
         return "\nOrder: " +
                 "customerId: " + customerId +
                 ", name: " + name +
-                ", pizza: " + pizzas +
-                ", pickUpTime: " + pickUpTime;
+                ", pizzas: " + pizzas +
+                ", pickUpTime: " + pickUpTime + "\n";
     }
 }

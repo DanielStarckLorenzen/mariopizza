@@ -7,7 +7,6 @@ public class Pizza {
 
     private int number;
     private String name;
-    private String description;
     private int price;
 
     Pizza (int number, String name, int price) {
@@ -22,10 +21,6 @@ public class Pizza {
 
     public void setPizza() {
 
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getPrice() {
