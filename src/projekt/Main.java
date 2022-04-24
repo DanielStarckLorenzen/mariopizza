@@ -119,6 +119,24 @@ public class Main {
         }
     }
 
+    public void removePizza() {
+        System.out.print("Select an order: ");
+        int orderNum = in.nextInt() - 1;
+        System.out.println("Which pizza would you like to remove? " + list.listOfOrders.get(orderNum) + "\n");
+        int pizzaToBeRemoved = in.nextInt();
+
+        list.listOfOrders.get(orderNum).removePizzaFromList(pizzaToBeRemoved);
+        in.nextLine();
+
+/*
+        switch (pizzaToBeRemoved) {
+            case 1 -> pizzaGone = new Pizza(1, "vesuvio", 57);
+            case 2 -> pizzaGone = new Pizza(2, "amerikaner", 53);
+        }
+        list.listOfOrders.get(orderNum).cancelPizza(pizzaGone);
+
+ */
+    }
 
     public void exit() {
         System.out.println("You exited the program!");
