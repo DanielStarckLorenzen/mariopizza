@@ -41,9 +41,15 @@ public class UserInterface {
     }
 
     public int setPickupTime() {
-        System.out.print("Time of pickup: ");
+        System.out.print("Time of order: ");
         return in.nextInt();
     }
+
+    public int deleteOrderNum() {
+        System.out.print("Which order would you like to delete?: ");
+        return in.nextInt();
+    }
+
     public void displayListOfOrders(ArrayList<Orders> orders){
         System.out.print(orders + "\n");
     }

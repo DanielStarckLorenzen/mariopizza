@@ -2,6 +2,7 @@ package projekt;
 
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Orders {
 
@@ -11,6 +12,7 @@ public class Orders {
     private int pickUpTime;
     private int totalPrice;
     private int orderNumber;
+    Scanner in = new Scanner(System.in);
 
 
     /*
@@ -47,6 +49,21 @@ public class Orders {
     }
     public void addPizzaToList(Pizza pizza){
         this.pizzas.add(pizza);
+    }
+
+    public void cancelPizza(Pizza pizza) {
+        this.pizzas.remove(pizza);
+    }
+
+    public void removePizzaFromList(int pizzaNumber){
+        for (int i = 0; i < this.pizzas.size(); i++) {
+            if (this.pizzas.get(i).getNumber() == pizzaNumber){
+                pizzas.remove(i);
+                i = this.pizzas.size();
+            } else if (this.pizzas.get(i).getNumber() != pizzaNumber && this.pizzas.size() > i){
+                System.out.println("that pizza doesnt exist in the order");
+            }
+        }
     }
 
     @Override

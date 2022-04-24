@@ -10,6 +10,7 @@ public class Main {
     private int totalPrice;
     private Pizza pizzaOfChoice = null;
     private int orderNumber = 0;
+    private Pizza pizzaGone = null;
 
     UserInterface ui = new UserInterface();
     Scanner in = new Scanner(System.in);
@@ -41,7 +42,13 @@ public class Main {
     }
 
     public void cancelOrder() {
-        list.listOfOrders.remove(1);
+        int orderNumToDelete = ui.deleteOrderNum()-1;
+        if (list.listOfOrders.size() > 0 && orderNumToDelete <= list.listOfOrders.size()){
+            list.listOfOrders.remove(orderNumToDelete);
+        } else {
+            ui.displayNoOrders();
+        }
+
 
     }
 
@@ -93,6 +100,15 @@ public class Main {
             switch (pizzaChoice) {
                 case "1", "vesuvio" -> pizzaOfChoice = new Pizza(1, "vesuvio", 57);
                 case "2", "amerikaner" -> pizzaOfChoice = new Pizza(2, "amerikaner", 53);
+                case "3", "cacciatore" -> pizzaOfChoice = new Pizza(3, "cacciatore", 57);
+                case "4", "carbona" -> pizzaOfChoice = new Pizza(4, "Carbona", 63);
+                case "5", "dennis" -> pizzaOfChoice = new Pizza(5, "dennis", 65);
+                case "6", "bertil" -> pizzaOfChoice = new Pizza(6, "bertil", 57);
+                case "7", "silvia" -> pizzaOfChoice = new Pizza(7, "silvia", 61);
+                case "8", "victoria" -> pizzaOfChoice = new Pizza(8, "victoria", 61);
+                case "9", "toronfo" -> pizzaOfChoice = new Pizza(9, "toronfo", 61);
+                case "10", "capricciosa" -> pizzaOfChoice = new Pizza(10, "capricciosa", 61);
+                case "11", "hawai" -> pizzaOfChoice = new Pizza(11, "hawai", 61);
 
             }
             //totalPrice += pizzaOfChoice.getPrice();
