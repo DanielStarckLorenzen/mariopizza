@@ -53,6 +53,19 @@ public class UserInterface {
     public void displayListOfOrders(ArrayList<Orders> orders){
         System.out.print(orders + "\n");
     }
-
-
+    public void displayNoOrders(){
+        System.out.println("That is not an order on the list!");
+    }
+    public void displayOptions(){
+        System.out.println("You have the following options: ");
+        System.out.println(
+                """ 
+                "add" to add a pizza to your order,
+                "exit" to end the program,
+                "orders" to see the what you've ordered so far,
+                "remove" to remove an item from the order,
+                "delete" to delete the entire order,
+                "cancel" to cancel your order.
+                """);
+    }
 }

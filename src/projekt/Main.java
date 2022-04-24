@@ -25,6 +25,7 @@ public class Main {
 
         System.out.println("Starting up...");
         ui.printMenu();
+        ui.displayOptions();
 
         while (keepGoing) {
             System.out.println("What do you want to do?");
@@ -34,8 +35,10 @@ public class Main {
                 case "add" -> addOrder();
                 case "exit" -> exit();
                 case "orders" -> ui.displayListOfOrders(list.listOfOrders);
-                case "remove", "delete", "cancel" -> cancelOrder();
+                case "delete", "cancel" -> cancelOrder();
+                case "remove" -> removePizza();
                 case "menu" -> ui.printMenu();
+                case "h","help" -> ui.displayOptions();
 
             }
         }
