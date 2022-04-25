@@ -1,9 +1,6 @@
 package projekt;
 
-import java.util.Scanner;
-
 public class Pizza {
-
 
     private int number;
     private String name;
@@ -15,16 +12,12 @@ public class Pizza {
         this.price = price;
     }
 
-    public void allPizzas() {
-        Pizza pizza1 = new Pizza(1, "Vesuvio", 57);
-    }
-
-    public void setPizza() {
-
-    }
-
     public int getPrice() {
         return price;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getNumber() {

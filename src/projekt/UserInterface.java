@@ -1,17 +1,11 @@
 package projekt;
 
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class UserInterface {
 
     Scanner in = new Scanner(System.in);
-
-    public void add() {
-        System.out.println("What pizza do you want to add");
-
-    }
 
     public void printMenu() {
         System.out.print("""
@@ -42,7 +36,8 @@ public class UserInterface {
 
     public int setPickupTime() {
         System.out.print("Time of order: ");
-        return in.nextInt();
+        int orderTime = in.nextInt();
+        return orderTime += 100;
     }
 
     public int deleteOrderNum() {
@@ -51,6 +46,8 @@ public class UserInterface {
     }
 
     public void displayListOfOrders(ArrayList<Orders> orders){
+
+
         System.out.print(orders + "\n");
     }
     public void displayNoOrders(){
