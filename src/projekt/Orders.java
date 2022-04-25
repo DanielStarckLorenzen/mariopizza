@@ -17,6 +17,8 @@ public class Orders {
         this.name = name;
     }
 
+
+
     public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
     }
@@ -25,16 +27,19 @@ public class Orders {
         this.pickUpTime = pickUpTime;
     }
 
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTotalPrice(int pizzaPrize) {
+        this.totalPrice += pizzaPrize;
     }
     public void addPizzaToList(Pizza pizza){
         this.pizzas.add(pizza);
     }
 
-    public void removePizzaFromList(int pizzaNumber){
+    public void removePizzaFromList(int pizzaNumber) {
+        int pizzaSize = this.pizzas.size();
         for (int i = 0; i < this.pizzas.size(); i++) {
-            if (this.pizzas.get(i).getNumber() == pizzaNumber){
+            if (this.pizzas.get(i).getNumber() == pizzaNumber) {
+                this.setTotalPrice(-this.pizzas.get(i).getPrice());
+                System.out.printf("%s has been removed from the order.", this.pizzas.get(i).getName());
                 pizzas.remove(i);
                 i = this.pizzas.size();
             }

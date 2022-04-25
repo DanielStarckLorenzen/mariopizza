@@ -65,4 +65,8 @@ public class UserInterface {
                 "cancel" to cancel your order.
                 """);
     }
+    public void exit(){
+        System.out.println("Program will now exit");
+    }
+
 }
