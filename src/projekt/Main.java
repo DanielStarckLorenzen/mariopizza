@@ -5,6 +5,8 @@ public class Main {
     Controller controller = new Controller();
 
     public static void main(String[] args) {
-	new Main().go();
+	//new Main().go();
+    Main go = new Main();
+    go.controller.start();
     }
 }
