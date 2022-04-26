@@ -1,6 +1,4 @@
 package projekt;
-
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Controller {
@@ -19,13 +17,13 @@ public class Controller {
         ui.displayOptions();
 
         while (keepGoing) {
-            System.out.println("What do you want to do?");
-            String answer = in.nextLine();
+            ui.userChoice();
+            String answer = in.next();
 
             switch (answer) {
                 case "add" -> addOrder();
                 case "exit" -> exit();
-                case "orders" -> displayOrderList();
+                case "orders" -> ui.displayListOfOrders(list.listOfOrders);
                 case "delete", "cancel" -> cancelOrder();
                 case "remove" -> removePizza();
                 case "menu" -> ui.printMenu();
@@ -33,11 +31,6 @@ public class Controller {
                 default -> System.out.println("That's not a command! Type h or help to see the list of options");
             }
         }
-    }
-
-    public void displayOrderList() {
-
-        ui.displayListOfOrders(list.listOfOrders);
     }
 
     public void cancelOrder() {
@@ -56,19 +49,15 @@ public class Controller {
         list.listOfOrders.get(orderNumber-1).setPickUpTime(ui.setPickupTime());
         list.listOfOrders.get(orderNumber-1).setOrderNumber(orderNumber);
         addPizza();
-
-
     }
 
     public void addPizza() {
-        System.out.println("How many pizzas would you like to order? ");
+        System.out.print("How many pizzas would you like to order? ");
         int amountOfPizzas = in.nextInt();
         in.nextLine();
         for (int i = 0; i < amountOfPizzas; i++) {
-
-            String pizzaChoice;
-            System.out.println("What pizza would you like to add?");
-            pizzaChoice = in.nextLine().toLowerCase(Locale.ROOT);
+            System.out.print("Which pizza? ");
+            String pizzaChoice = in.nextLine();
 
             switch (pizzaChoice) {
                 case "1", "vesuvio" -> pizzaOfChoice = new Pizza(1, "vesuvio", 57);
@@ -87,7 +76,6 @@ public class Controller {
                 case "14", "mafia" -> pizzaOfChoice = new Pizza(14, "mafia", 61);
                 default -> System.out.println("That's not a pizza on the menu");
             }
-
             list.listOfOrders.get(orderNumber-1).addPizzaToList(pizzaOfChoice);
             list.listOfOrders.get(orderNumber-1).setTotalPrice(pizzaOfChoice.getPrice());
         }
@@ -100,7 +88,6 @@ public class Controller {
             System.out.println("That order doesn't exist");
         }
         else {
-
             System.out.println("Which pizza would you like to remove? " + list.listOfOrders.get(orderNum) + "\n");
             int pizzaToBeRemoved = in.nextInt();
             list.listOfOrders.get(orderNum).removePizzaFromList(pizzaToBeRemoved);

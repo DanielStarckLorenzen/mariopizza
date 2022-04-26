@@ -1,11 +1,23 @@
 package projekt;
-
-
 import java.util.*;
 
 public class UserInterface {
 
     Scanner in = new Scanner(System.in);
+
+    public int pizzaChoice(){
+        System.out.println("Which pizza would you like to order: ");
+        return in.nextInt();
+    }
+
+    public int amountOfPizzasToOrder(){
+        System.out.println("How many pizzas would you like to order? ");
+        return in.nextInt();
+    }
+
+    public void userChoice(){
+        System.out.println("Enter choice: ");
+    }
 
     public void printMenu() {
         System.out.print("""
@@ -27,17 +39,20 @@ public class UserInterface {
                 """);
     }
 
-
-
     public String customerName() {
         System.out.print("Please enter customer name: ");
         return in.next();
     }
 
     public int setPickupTime() {
-        System.out.print("Time of order: ");
+        System.out.print("Time of Order: ");
         int orderTime = in.nextInt();
-        return orderTime += 100;
+        System.out.print("Is the order through phone or in shop? (shop/phone)");
+        String inShopOrPhone = in.next().toLowerCase(Locale.ROOT);
+        if (inShopOrPhone.equals("shop"))
+            return orderTime += 15;
+        else
+            return orderTime += 100;
     }
 
     public int deleteOrderNum() {
@@ -46,13 +61,13 @@ public class UserInterface {
     }
 
     public void displayListOfOrders(ArrayList<Orders> orders){
-
-
         System.out.print(orders + "\n");
     }
+
     public void displayNoOrders(){
         System.out.println("That is not an order on the list!");
     }
+
     public void displayOptions(){
         System.out.println("You have the following options: ");
         System.out.println(
@@ -65,8 +80,8 @@ public class UserInterface {
                 "cancel" to cancel your order.
                 """);
     }
+
     public void exit(){
         System.out.println("Program will now exit");
     }
-
 }

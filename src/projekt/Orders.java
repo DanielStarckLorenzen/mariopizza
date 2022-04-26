@@ -1,7 +1,5 @@
 package projekt;
-
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Orders {
 
@@ -10,14 +8,10 @@ public class Orders {
     private int pickUpTime;
     private int totalPrice;
     private int orderNumber;
-    Scanner in = new Scanner(System.in);
-
 
     public void setName(String name) {
         this.name = name;
     }
-
-
 
     public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
@@ -30,6 +24,7 @@ public class Orders {
     public void setTotalPrice(int pizzaPrize) {
         this.totalPrice += pizzaPrize;
     }
+
     public void addPizzaToList(Pizza pizza){
         this.pizzas.add(pizza);
     }
@@ -39,11 +34,10 @@ public class Orders {
         for (int i = 0; i < this.pizzas.size(); i++) {
             if (this.pizzas.get(i).getNumber() == pizzaNumber) {
                 this.setTotalPrice(-this.pizzas.get(i).getPrice());
-                System.out.printf("%s has been removed from the order.", this.pizzas.get(i).getName());
+                System.out.printf("%s has been removed from the order.\n", this.pizzas.get(i).getName());
                 pizzas.remove(i);
                 i = this.pizzas.size();
             }
-
         }
         if (this.pizzas.size() == pizzaSize) {
             System.out.println("that pizza doesnt exist in the order");
