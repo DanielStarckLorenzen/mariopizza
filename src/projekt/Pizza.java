@@ -1,5 +1,6 @@
 package projekt;
 
+
 public class Pizza {
 
     private int number;

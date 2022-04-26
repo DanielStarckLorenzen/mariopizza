@@ -25,6 +25,7 @@ public class Orders {
         this.totalPrice += pizzaPrize;
     }
 
+
     public void addPizzaToList(Pizza pizza){
         this.pizzas.add(pizza);
     }

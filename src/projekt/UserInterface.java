@@ -10,6 +10,7 @@ public class UserInterface {
         return in.nextInt();
     }
 
+
     public int amountOfPizzasToOrder(){
         System.out.println("How many pizzas would you like to order? ");
         return in.nextInt();
