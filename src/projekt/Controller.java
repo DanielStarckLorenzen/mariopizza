@@ -30,7 +30,7 @@ public class Controller {
                 case "remove" -> removePizza();
                 case "menu" -> ui.printMenu();
                 case "h","help" -> ui.displayOptions();
-
+                default -> System.out.println("That's not a command! Type h or help to see the list of options");
             }
         }
     }
@@ -85,6 +85,7 @@ public class Controller {
                 case "12", "le blissola" -> pizzaOfChoice = new Pizza(12, "le blissola", 61);
                 case "13", "venezia" -> pizzaOfChoice = new Pizza(13, "venezia", 61);
                 case "14", "mafia" -> pizzaOfChoice = new Pizza(14, "mafia", 61);
+                default -> System.out.println("That's not a pizza on the menu");
             }
 
             list.listOfOrders.get(orderNumber-1).addPizzaToList(pizzaOfChoice);
