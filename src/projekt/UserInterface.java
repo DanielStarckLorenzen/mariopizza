@@ -1,8 +1,12 @@
 package projekt;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.*;
 
 public class UserInterface {
 
+    ArrayList<String> menu = new ArrayList<>();
     Scanner in = new Scanner(System.in);
 
     public int pizzaChoice(){
@@ -20,8 +24,20 @@ public class UserInterface {
         System.out.println("Enter choice: ");
     }
 
-    public void printMenu() {
-        System.out.print("""
+    public void loadMenu() throws FileNotFoundException {
+        System.out.println("Loading menu...");
+        Scanner sc = new Scanner(new File("menukort.csv"));
+        String loadMenu = sc.nextLine();
+        while (sc.hasNextLine()){
+            loadMenu = sc.nextLine();
+            menu.add(loadMenu);
+            System.out.println(loadMenu);
+        }
+    }
+
+    public void printMenu() throws FileNotFoundException {
+        /*PrintStream out = new PrintStream(new File("menukort.csv"));
+        out.print("""
                 ------------------------------------- MENU ----------------------------------------------
                 1.  Vesuvio:      tomatsauce, ost, skinke, og oregano................................57,-
                 2.  Amerikaner:   tomatsauce, ost, oksefars, og oregano..............................53,-
@@ -37,7 +53,7 @@ public class UserInterface {
                 12. Le Blissola:  tomatsauce, ost, skinke, rejer og oregano..........................61,-
                 13. Venezia       tomatsauce, ost, skinke, bacon og oregano..........................61,-
                 14. Mafia:        tomatsauce, ost, pepperoni, bacon, løg Og Oregano..................61,-
-                """);
+                """);*/
     }
 
     public String customerName() {
@@ -78,7 +94,7 @@ public class UserInterface {
                 "orders" to see the what you've ordered so far,
                 "remove" to remove an item from the order,
                 "delete" to delete the entire order,
-                "cancel" to cancel your order.
+                "exit" to end the program,
                 """);
     }
 

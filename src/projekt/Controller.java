@@ -1,4 +1,5 @@
 package projekt;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Controller {
@@ -11,7 +12,7 @@ public class Controller {
     Scanner in = new Scanner(System.in);
     List list = new List();
 
-    public void start() {
+    public void start() throws FileNotFoundException {
         System.out.println("Starting up...");
         ui.printMenu();
         ui.displayOptions();
@@ -27,7 +28,7 @@ public class Controller {
                 case "orders" -> ui.displayListOfOrders(list.listOfOrders);
                 case "delete", "cancel" -> cancelOrder();
                 case "remove" -> removePizza();
-                case "menu" -> ui.printMenu();
+                case "menu" -> ui.loadMenu();
                 case "h","help" -> ui.displayOptions();
                 default -> System.out.println("That's not a command! Type h or help to see the list of options");
             }
