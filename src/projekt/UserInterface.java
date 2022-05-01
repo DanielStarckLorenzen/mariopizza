@@ -89,8 +89,8 @@ public class UserInterface {
         System.out.println("You have the following options: ");
         System.out.println(
                 """ 
+                "menu" to see the menu,
                 "add" to add a pizza to your order,
-                "exit" to end the program,
                 "orders" to see the what you've ordered so far,
                 "remove" to remove an item from the order,
                 "delete" to delete the entire order,
